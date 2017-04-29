@@ -1,0 +1,72 @@
+version: '2'
+
+services:
+
+  collector1:
+    image: twitter-heat-collector:latest
+    container_name: collector1
+    environment:
+      - "NODE_HOSTNAME=collector1"
+      - "CLUSTER_PORT=3001"
+      - "TWITTER_HEAT_ROLE1=collector"
+      - "TWITTER_HEAT_ROLE2=worker"
+      - "TWITTER_HEAT_ROLE3=statsManager"
+      - "TWITTER_CONSUMER_KEY=VL7dzmzEyM6F9851Vhx9HqxJg"
+      - "TWITTER_CONSUMER_SECRET=4YZ46mSUnMEbXVcCruoYQPeNVLAmflH4dua6Bi6LlY7ooDwfln"
+      - "TWITTER_ACCESS_TOKEN=27071990-t7tM91AOq0zabfBcQ0KzGK4svV1REWRz5P7Elyc63"
+      - "TWITTER_ACCESS_TOKEN_SECRET=UduxenetUQodxyGPu0286712ecCpWnL0UXY9p38d1mYRa"
+
+    ports:
+      - "3001:3001"
+
+  collector2:
+      image: twitter-heat-collector:latest
+      container_name: collector2
+      environment:
+        - "NODE_HOSTNAME=collector2"
+        - "CLUSTER_PORT=3002"
+        - "TWITTER_HEAT_ROLE1=collector"
+        - "TWITTER_HEAT_ROLE2=worker"
+        - "TWITTER_HEAT_ROLE3=statsManager"
+        - "TWITTER_CONSUMER_KEY=TqcY6sAc4nqP5LNuOMn0nxICG"
+        - "TWITTER_CONSUMER_SECRET=ejiMlulWDLcqnJRkkcvDNbNc7mZPiVmAJOIWyjSzEYkRUg2K0d"
+        - "TWITTER_ACCESS_TOKEN=27071990-Gdqe4cNoEctILXZRiRcxu6ug9VdipOu61fgcaqXky"
+        - "TWITTER_ACCESS_TOKEN_SECRET=IteOPvqWCDCsFWkwt99x4e5qDYLzEPIHPusuFtyACHgxu"
+      ports:
+        - "3002:3002"
+      depends_on:
+        - collector1
+
+  api1:
+      image: twitter-heat-api:latest
+      container_name: api1
+      environment:
+        - "NODE_HOSTNAME=api1"
+        - "CLUSTER_PORT=3011"
+      ports:
+        - "3011:3011"
+        - "8080:8080"
+      depends_on:
+        - collector1
+
+#  thermometer1:
+#    image: twitter-heat-sandbox:latest
+#    container_name: thermometer1
+#    environment:
+#      - "NODE_HOSTNAME=thermometer1"
+#      - "CLUSTER_PORT=3003"
+#      - "TWITTER_HEAT_ROLE1=twit-master"
+#      - "TWITTER_HEAT_ROLE2=twit-collector"
+#    ports:
+#      - "3003:3003"
+#
+#  thermometer2:
+#    image: twitter-heat-sandbox:latest
+#    container_name: thermometer2
+#    environment:
+#      - "NODE_HOSTNAME=thermometer2"
+#      - "CLUSTER_PORT=3004"
+#      - "TWITTER_HEAT_ROLE1=twit-master"
+#    ports:
+#      - "3004:3004"
+
