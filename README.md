@@ -7,12 +7,12 @@ Twitter Heat is a clustering application utilizing Akka, Akka Cluster, Akka Stre
 
 ## Architecture
 
-The main components of Twitter Heat are "Collector", "Tweet Stream Worker" and "API". The interaction among these components is illustrated as belows.
+The main components of Twitter Heat are "Collector", "Tweet Stream Worker" and "API". The interactions among these components are illustrated as below.
  ![](image/twitter-heat-component.png?raw=true)
 
 ## Deployment
 
-Twitter Heat uses SBT as a building tool and for publishing docker images. Twitter Heat is configured so that Collector, Stream Worker, Tweet Stream and Stats Manager are deployed in a docker container while API (Akka HTTP) is in another.
+Twitter Heat uses SBT as a building tool and for publishing docker images. Twitter Heat is configured so that Collector, Stream Worker, Tweet Stream and Stats Manager are deployed in one docker container while API (Akka HTTP) in another.
 
 ![](image/twitter-heat-deployment.png?raw=true)
 
@@ -45,7 +45,7 @@ For Twitter Heat, you should enter your won Twitter keys/tokens in docker-compos
 
 ## Twitter Heat API
 
-After starting the Twitter Heat cluster using docker-compose, you can access the API server in port 8080 using any HTTP client.
+After starting the Twitter Heat cluster using docker-compose, you can access the API server from port 8080 using any HTTP client.
 
 ### Start a Query
 > curl -X POST localhost:8080/query/taiwan
@@ -82,6 +82,6 @@ $ curl -X GET localhost:8080/stats
 ```
 
 ## Twitter API Rate Limiting
-Twitter imposes the rate limiting on its public APIs. Twitter Heat make a Twitter login with every query request. If you start a query too often, you will see the Twitter rate limiting warning in the log. 
+Twitter imposes rate limiting on its public APIs. Twitter Heat makes a Twitter login with every query request. If you start a query too often, you will see the Twitter rate limiting warnings in the log. 
 
-Of course, a Twitter login per query request is a flawed implementation. A login session can be shared by multiple query requests and hence multiple tweet stream.
+Of course, one Twitter login per query request is a flawed implementation. A login session can be shared by multiple query requests and hence multiple tweet stream.
