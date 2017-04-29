@@ -49,24 +49,4 @@ services:
       depends_on:
         - collector1
 
-#  thermometer1:
-#    image: twitter-heat-sandbox:latest
-#    container_name: thermometer1
-#    environment:
-#      - "NODE_HOSTNAME=thermometer1"
-#      - "CLUSTER_PORT=3003"
-#      - "TWITTER_HEAT_ROLE1=twit-master"
-#      - "TWITTER_HEAT_ROLE2=twit-collector"
-#    ports:
-#      - "3003:3003"
-#
-#  thermometer2:
-#    image: twitter-heat-sandbox:latest
-#    container_name: thermometer2
-#    environment:
-#      - "NODE_HOSTNAME=thermometer2"
-#      - "CLUSTER_PORT=3004"
-#      - "TWITTER_HEAT_ROLE1=twit-master"
-#    ports:
-#      - "3004:3004"
 

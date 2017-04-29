@@ -1,1 +1,0 @@
-name := "twitter-heat-sandbox"
