@@ -38,7 +38,7 @@ A set of keys and access tokens is required to invoked Twitter's APIs. You need 
  
  1. TWITTER_CONSUMER_KEY
  2. TWITTER_CONSUMER_SECRET
- 3. TWITTER_ACCESS_TOKEN=27071990
+ 3. TWITTER_ACCESS_TOKEN
  4. TWITTER_ACCESS_TOKEN_SECRET 
 
 For Twitter Heat, you should enter your won Twitter keys/tokens in docker-compose.yml. 
