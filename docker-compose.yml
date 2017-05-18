@@ -11,10 +11,10 @@ services:
       - "TWITTER_HEAT_ROLE1=collector"
       - "TWITTER_HEAT_ROLE2=worker"
       - "TWITTER_HEAT_ROLE3=statsManager"
-      - "TWITTER_CONSUMER_KEY=VL7dzmzEyM6F9851Vhx9HqxJg"
-      - "TWITTER_CONSUMER_SECRET=4YZ46mSUnMEbXVcCruoYQPeNVLAmflH4dua6Bi6LlY7ooDwfln"
-      - "TWITTER_ACCESS_TOKEN=27071990-t7tM91AOq0zabfBcQ0KzGK4svV1REWRz5P7Elyc63"
-      - "TWITTER_ACCESS_TOKEN_SECRET=UduxenetUQodxyGPu0286712ecCpWnL0UXY9p38d1mYRa"
+      - "TWITTER_CONSUMER_KEY=[consumer key]"
+      - "TWITTER_CONSUMER_SECRET=[comsumer secret]"
+      - "TWITTER_ACCESS_TOKEN=[access token]"
+      - "TWITTER_ACCESS_TOKEN_SECRET=[access token secret]"
 
     ports:
       - "3001:3001"
@@ -28,10 +28,10 @@ services:
         - "TWITTER_HEAT_ROLE1=collector"
         - "TWITTER_HEAT_ROLE2=worker"
         - "TWITTER_HEAT_ROLE3=statsManager"
-        - "TWITTER_CONSUMER_KEY=TqcY6sAc4nqP5LNuOMn0nxICG"
-        - "TWITTER_CONSUMER_SECRET=ejiMlulWDLcqnJRkkcvDNbNc7mZPiVmAJOIWyjSzEYkRUg2K0d"
-        - "TWITTER_ACCESS_TOKEN=27071990-Gdqe4cNoEctILXZRiRcxu6ug9VdipOu61fgcaqXky"
-        - "TWITTER_ACCESS_TOKEN_SECRET=IteOPvqWCDCsFWkwt99x4e5qDYLzEPIHPusuFtyACHgxu"
+        - "TWITTER_CONSUMER_KEY=[consumer key]"
+        - "TWITTER_CONSUMER_SECRET=[consumer secret]"
+        - "TWITTER_ACCESS_TOKEN=[access token]"
+        - "TWITTER_ACCESS_TOKEN_SECRET=[access token secret]"
       ports:
         - "3002:3002"
       depends_on:
